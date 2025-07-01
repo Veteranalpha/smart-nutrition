@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up | Smart Nutrition</title>
+  <link rel="stylesheet" href="src/output.css" />
+</head>
+<body class="min-h-screen flex items-center justify-center px-4
+             bg-white md:bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80')]
+             md:bg-cover md:bg-center md:bg-no-repeat">
+  
+  <div class="bg-white bg-opacity-90 backdrop-blur-md p-8 rounded-lg md:shadow-xl w-full max-w-md
+              min-h-screen md:min-h-fit flex flex-col justify-center">
+
+    <h1 class="text-3xl font-bold text-green-600 mb-6 text-center">Create an Account</h1>
+
+    <form id="signupForm" class="space-y-4">
+
+      <div>
+        <label class="block text-sm text-gray-700 mb-1">Full Name</label>
+        <input type="text" id="text" required placeholder="John Doe"
+               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-700 mb-1">Email</label>
+        <input type="email" id="email" placeholder="you@example.com"
+               class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+        <p id="emailError" class="text-red-500 text-xs mt-1 hidden">Enter a valid email address.</p>
+      </div>
+
+      <!-- Password -->
+      <div>
+        <label class="block text-sm text-gray-700 mb-1">Password</label>
+        <div class="relative">
+          <input type="password" id="password" placeholder="Minimum 8 characters"
+                 class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400 pr-10" />
+          <span onclick="toggleVisibility('password', this)"
+                class="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer text-gray-600 text-lg">👁</span>
+        </div>
+        <p id="passwordError" class="text-red-500 text-xs mt-1 hidden">Password must be at least 8 characters.</p>
+      </div>
+
+    
+
+      <button type="submit"
+              class="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition" id="submit">
+        Create Account
+      </button>
+    </form>
+
+    <p class="mt-6 text-sm text-center text-gray-600">
+      Already have an account?
+      <a href="login.html" class="text-green-600 font-semibold hover:underline">Login</a>
+    </p>
+
+    <p class="mt-6 text-sm text-center text-gray-600">
+      Supervised by <span class="font-semibold text-green-700">Dr. Olusesi</span>
+    </p>
+
+  </div>
+  <!-- In the bottom of your body -->
+<script type="module" src="signup.js" defer></script>
+</body>
+</html>

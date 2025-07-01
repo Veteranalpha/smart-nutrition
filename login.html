@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Smart Nutrition</title>
+    <link rel="stylesheet" href="src/output.css">
+</head>
+    <body class="min-h-screen flex items-center justify-center px-4
+             bg-white md:bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80')] 
+             md:bg-cover md:bg-center md:bg-no-repeat">
+
+  <div class="bg-white bg-opacity-90 backdrop-blur-md p-8 rounded-lg md:shadow-xl w-full max-w-md
+            min-h-screen md:min-h-fit flex flex-col justify-center">
+
+
+
+    <h1 class="text-3xl font-bold text-green-600 mb-6 text-center">Login</h1>
+
+    <form class="space-y-4" id="loginForm">
+      <div>
+        <label class="block text-sm text-gray-700 mb-1">Email</label>
+        <input type="email" placeholder="you@example.com" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" id="email"  required />
+      </div>
+
+      <div>
+        <label class="block text-sm text-gray-700 mb-1">Password</label>
+        <input type="password" placeholder="••••••••" id="password" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" required/>
+      </div>
+
+      <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition">Sign In</button>
+    </form>
+
+    <p class="mt-6 text-sm text-center text-gray-600">
+      Don't have an account?
+      <a href="signup.html" class="text-green-600 font-semibold hover:underline">Sign up</a>
+    </p>
+
+    <p class="mt-6 text-sm text-center text-gray-600">
+      Supervised by <span class="font-semibold text-green-700">Dr. Olusesi</span>
+    </p>
+    
+  </div>
+
+  <!-- In the bottom of your body -->
+<script type="module" src="login.js" defer></script>
+</body>
+</html>
