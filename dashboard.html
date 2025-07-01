@@ -6,27 +6,73 @@
   <title>Dashboard | Smart Nutrition</title>
   <link href="src/output.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-100 min-h-screen p-6 font-sans">
+<body class="bg-gray-100 min-h-screen p-6 font-sans relative">
   <script src="https://kit.fontawesome.com/652ab1c570.js" crossorigin="anonymous"></script>
 
-<!-- Navbar -->
-<div class="bg-white p-4 shadow-md rounded-lg flex justify-between items-center">
-  <!-- Logo -->
-  <h1 class="text-lg font-bold text-green-600">Smart Nutrition</h1>
-
-  <!-- Profile -->
-  <div class="relative">
-    <!-- Profile Image -->
-    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center        text-xl border-2 border-green-500 cursor-pointer">
-    <i class="fa-regular fa-circle-user"></i> 
+  <!-- Navbar -->
+  <div class="bg-white p-4 shadow-md rounded-lg flex justify-between items-center">
+    <h1 class="text-lg font-bold text-green-600">Smart Nutrition</h1>
+    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl border-2 border-green-500 cursor-pointer">
+      <i class="fa-regular fa-circle-user"></i> 
     </div>
-
-    
-   
   </div>
-</div>
 
+  <!-- Profile Modal -->
+  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 mt-3">
+    <form id="ProfileForm" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md space-y-4">
+      <h2 class="text-xl font-semibold text-green-600 text-center">Complete Your Profile</h2>
 
-<script src="dashboard.js"></script>
+      <div>
+        <label for="age" class="block text-sm font-medium text-gray-700">Age</label>
+        <input type="number" id="age" name="age" required class="mt-1 block w-full px-3 py-2 border rounded-md focus:ring focus:ring-green-200" />
+      </div>
+
+      <div>
+        <label for="height" class="block text-sm font-medium text-gray-700">Height (cm)</label>
+        <input type="number" id="height" name="height" required class="mt-1 block w-full px-3 py-2 border rounded-md focus:ring focus:ring-green-200" />
+      </div>
+
+      <div>
+        <label for="weight" class="block text-sm font-medium text-gray-700">Weight (kg)</label>
+        <input type="number" id="weight" name="weight" required class="mt-1 block w-full px-3 py-2 border rounded-md focus:ring focus:ring-green-200" />
+      </div>
+
+      <div>
+        <label for="goal" class="block text-sm font-medium text-gray-700">Nutrition Goal</label>
+        <select id="goal" name="goal" required class="mt-1 block w-full px-3 py-2 border rounded-md focus:ring focus:ring-green-200">
+          <option value="">Select Goal</option>
+          <option value="lose">Weight Loss</option>
+          <option value="maintain">Maintain Weight</option>
+          <option value="gain">Weight Gain</option>
+        </select>
+      </div>
+
+     <button type="submit" class="bg-green-500 py-2 w-full text-white rounded-xl cursor-pointer" >Save</button>
+
+    </form>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    const profileForm = document.getElementById("ProfileForm");
+    const profileModal = document.getElementById("profileModal");
+
+    profileForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const age = document.getElementById("age").value;
+      const height = document.getElementById("height").value;
+      const weight = document.getElementById("weight").value;
+      const goal = document.getElementById("goal").value;
+
+      // Save to localStorage for now (can change to Firebase later)
+      localStorage.setItem("profileData", JSON.stringify({ age, height, weight, goal }));
+
+      // Hide modal
+      profileModal.classList.add("hidden");
+
+      alert("Profile saved!");
+    });
+  </script>
 </body>
 </html>
