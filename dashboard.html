@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard | Smart Nutrition</title>
+  
   <link href="src/output.css" rel="stylesheet" />
+  <title>Dashboard | Smart Nutrition</title>
 </head>
 <body class="bg-gray-100 min-h-screen p-6 font-sans relative">
   <script src="https://kit.fontawesome.com/652ab1c570.js" crossorigin="anonymous"></script>
@@ -18,7 +19,7 @@
   </div>
 
   <!-- Profile Modal -->
-  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 mt-3">
+  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50  items-center flex justify-center">
     <form id="ProfileForm" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md space-y-4">
       <h2 class="text-xl font-semibold text-green-600 text-center">Complete Your Profile</h2>
 
@@ -53,26 +54,6 @@
   </div>
 
   <!-- JavaScript -->
-  <script>
-    const profileForm = document.getElementById("ProfileForm");
-    const profileModal = document.getElementById("profileModal");
-
-    profileForm.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const age = document.getElementById("age").value;
-      const height = document.getElementById("height").value;
-      const weight = document.getElementById("weight").value;
-      const goal = document.getElementById("goal").value;
-
-      // Save to localStorage for now (can change to Firebase later)
-      localStorage.setItem("profileData", JSON.stringify({ age, height, weight, goal }));
-
-      // Hide modal
-      profileModal.classList.add("hidden");
-
-      alert("Profile saved!");
-    });
-  </script>
+  <script src="dashboard.js"></script>
 </body>
 </html>

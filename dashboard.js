@@ -1,12 +1,21 @@
-document.getElementById('profileModal').classList.remove("hidden");
 
-function toggleDropdown() {
-    const menu = document.getElementById('dropdownMenu');
-    menu.classList.toggle('hidden');
-  }
+    const profileForm = document.getElementById("ProfileForm");
+    const profileModal = document.getElementById("profileModal");
 
-  function signOutUser() {
-    // Firebase or custom sign-out logic
-    alert("Signed out!");
-    window.location.href = "index.html";
-  }
+    profileForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const age = document.getElementById("age").value;
+      const height = document.getElementById("height").value;
+      const weight = document.getElementById("weight").value;
+      const goal = document.getElementById("goal").value;
+
+      // Save to localStorage for now (can change to Firebase later)
+      console.log(age, height,weight)
+      localStorage.setItem("profileData", JSON.stringify({ age, height, weight, goal }));
+
+      // Hide modal
+      profileModal.classList.add("hidden");
+
+      alert("Profile saved!");
+    });
