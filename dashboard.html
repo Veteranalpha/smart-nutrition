@@ -7,19 +7,49 @@
   <link href="src/output.css" rel="stylesheet" />
   <title>Dashboard | Smart Nutrition</title>
 </head>
-<body class="bg-gray-100 min-h-screen p-6 font-sans relative">
+<body class="bg-gray-100 p-6 font-sans relative min-h-screen">
   <script src="https://kit.fontawesome.com/652ab1c570.js" crossorigin="anonymous"></script>
 
   <!-- Navbar -->
-  <div class="bg-white p-4 shadow-md rounded-lg flex justify-between items-center">
-    <h1 class="text-lg font-bold text-green-600">Smart Nutrition</h1>
-    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl border-2 border-green-500 cursor-pointer">
-      <i class="fa-regular fa-circle-user"></i> 
+<div class="bg-white p-4 shadow-md rounded-lg flex justify-between items-center">
+  <h1 class="text-lg font-bold text-green-600">Smart Nutrition</h1>
+
+  <!-- Profile + Dropdown -->
+  <div class="relative inline-block text-left">
+    <!-- Profile Icon -->
+    <div
+      class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl border-2 border-green-500 cursor-pointer"
+      id="menu-button"
+    >
+      <i class="fa-regular fa-circle-user"></i>
     </div>
   </div>
+</div>
+
+    <!-- Dropdown Menu (now correctly scoped) -->
+    <div
+      id="dropdownMenu"
+      class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 text-sm hidden"
+    >
+      <div class="py-2">
+        <p class="px-4 py-2 text-gray-700">Name: John</p>
+        <p class="px-4 py-2 text-gray-700">Age: 22</p>
+        <p class="px-4 py-2 text-gray-700">Initial Weight: 65kg</p>
+        <p class="px-4 py-2 text-gray-700">Initial Height: 175cm</p>
+        <button
+          onclick="signOutUser()"
+          class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50"
+        >
+          🚪 Sign out
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   <!-- Profile Modal -->
-  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50  items-center flex justify-center">
+  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50  items-center flex justify-center hidden">
     <form id="ProfileForm" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md space-y-4">
       <h2 class="text-xl font-semibold text-green-600 text-center">Complete Your Profile</h2>
 
@@ -52,6 +82,7 @@
 
     </form>
   </div>
+  
 
   <!-- JavaScript -->
   <script src="dashboard.js"></script>

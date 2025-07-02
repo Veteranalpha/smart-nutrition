@@ -19,3 +19,19 @@
 
       alert("Profile saved!");
     });
+
+
+  const menuButton = document.getElementById('menu-button');
+  const dropdownMenu = document.getElementById('dropdownMenu');
+
+  menuButton.addEventListener('click', () => {
+    dropdownMenu.classList.toggle('hidden');
+  });
+
+  // Optional: Close the dropdown if clicked outside
+  document.addEventListener('click', (event) => {
+    if (!menuButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.classList.add('hidden');
+    }
+  });
+
