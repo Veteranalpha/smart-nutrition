@@ -35,3 +35,38 @@
     }
   });
 
+  const foodData = {
+  eba: 250,
+  rice: 200,
+  beans: 180,
+  // Add more
+};
+
+let totalCalories = 0;
+const foodSelect = document.getElementById('foodSelect');
+const quantityInput = document.getElementById('quantityInput');
+const addFoodBtn = document.getElementById('addFoodBtn');
+const foodLog = document.getElementById('foodLog');
+const totalCaloriesText = document.getElementById('totalCalories');
+
+addFoodBtn.addEventListener('click', () => {
+  const food = foodSelect.value;
+  const qty = parseInt(quantityInput.value);
+
+  if (!food || isNaN(qty) || qty <= 0) return alert('Please select food and enter quantity');
+
+  const foodName = foodSelect.options[foodSelect.selectedIndex].text;
+  const calories = foodData[food] * qty;
+  totalCalories += calories;
+
+  const listItem = document.createElement('li');
+  listItem.textContent = `${qty} x ${foodName} = ${calories} kcal`;
+  foodLog.appendChild(listItem);
+
+  totalCaloriesText.textContent = `Total: ${totalCalories} kcal`;
+
+  // Reset input
+  foodSelect.value = '';
+  quantityInput.value = '';
+});
+
