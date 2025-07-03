@@ -27,9 +27,26 @@
 </div>
 
 <div >
+<div
+      id="dropdownMenu"
+      class="absolute  right-0 z-50 mt-2 w-48 bg-white rounded-md shadow-lg  text-sm hidden"
+    >
+      <div class="py-2">
+        <p class="px-4 py-2 text-gray-700">Name: John</p>
+        <p class="px-4 py-2 text-gray-700">Age: 22</p>
+        <p class="px-4 py-2 text-gray-700">Initial Weight: 65kg</p>
+        <p class="px-4 py-2 text-gray-700">Initial Height: 175cm</p>
+        <button
+          onclick="signOutUser()"
+          class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50"
+        >
+           Sign out
+        </button>
+      </div>
+    </div>
 <div>
-  <h2 class="text-xl font-semibold">Welcome, <span class="username text-green-600">Veteran</span></h2>
-<p class="text-sm text-gray-500">Your goal: Weight loss / gain / maintain</p>
+  <h2 class="text-xl font-semibold pt-4">Welcome, <span class="username text-green-600">Veteran</span></h2>
+  <p class="text-sm text-gray-500 pt-1.5">Your goal: Weight loss / gain / maintain</p>
 
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
@@ -48,25 +65,11 @@
     <!-- ABSOLUTE PART -->
 
     <!-- Dropdown Menu (now correctly scoped) -->
-    <div
-      id="dropdownMenu"
-      class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 text-sm hidden"
-    >
-      <div class="py-2">
-        <p class="px-4 py-2 text-gray-700">Name: John</p>
-        <p class="px-4 py-2 text-gray-700">Age: 22</p>
-        <p class="px-4 py-2 text-gray-700">Initial Weight: 65kg</p>
-        <p class="px-4 py-2 text-gray-700">Initial Height: 175cm</p>
-        <button
-          onclick="signOutUser()"
-          class="block w-full text-left px-4 py-2 text-red-600 hover:bg-red-50"
-        >
-          🚪 Sign out
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+  
+     
+    
 
 
   <!-- Profile Modal -->
