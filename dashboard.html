@@ -26,6 +26,27 @@
   </div>
 </div>
 
+<div >
+<div>
+  <h2 class="text-xl font-semibold">Welcome, <span class="username text-green-600">Veteran</span></h2>
+<p class="text-sm text-gray-500">Your goal: Weight loss / gain / maintain</p>
+
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+  <div class="bg-white shadow p-4 rounded">Calories Target: 2,000 kcal</div>
+  <div class="bg-white shadow p-4 rounded">Weight: 68kg</div>
+  <div class="bg-white shadow p-4 rounded">Height: 172cm</div>
+</div>
+<div class="mt-6 bg-green-50 p-4 rounded">
+  <h3 class="font-semibold text-green-600 mb-2">Today’s Recommendation</h3>
+  <p>Include protein in your breakfast to stay full longer.</p>
+</div>
+
+</div>
+
+
+    <!-- ABSOLUTE PART -->
+
     <!-- Dropdown Menu (now correctly scoped) -->
     <div
       id="dropdownMenu"
@@ -49,8 +70,8 @@
 
 
   <!-- Profile Modal -->
-  <div id="profileModal" class="fixed inset-0 bg-black bg-opacity-50  items-center flex justify-center hidden">
-    <form id="ProfileForm" class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md space-y-4">
+   <div id="profileModal" class="absolute  inset-0 bg-black bg-opacity-50  items-center flex justify-center hidden ">
+    <form id="ProfileForm" class=" absolute bg-white p-6 rounded-lg shadow-lg w-full max-w-md space-y-4">
       <h2 class="text-xl font-semibold text-green-600 text-center">Complete Your Profile</h2>
 
       <div>
@@ -82,7 +103,6 @@
 
     </form>
   </div>
-  
 
   <!-- JavaScript -->
   <script src="dashboard.js"></script>
