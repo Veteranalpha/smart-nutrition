@@ -1,44 +1,40 @@
-  // Import the functions you need from the SDKs you need
-  
+document.addEventListener('DOMContentLoaded', () => {
+  const signupForm = document.getElementById('signupForm');
 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+    const first_name = document.getElementById('first_name').value.trim();
+    const last_name = document.getElementById('last_name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    console.log(last_name);
+    console.log(first_name);
+    console.log(password);
+    console.log(email);
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBQ0IVqJfrC2oYH3zQr9yjkJZFh9CL3z30",
-    authDomain: "smart-nutrition-system-b6bab.firebaseapp.com",
-    projectId: "smart-nutrition-system-b6bab",
-    storageBucket: "smart-nutrition-system-b6bab.firebasestorage.app",
-    messagingSenderId: "526339972678",
-    appId: "1:526339972678:web:7162666bf843214955b447"
-  };
+    try {
+      const response = await fetch("http://54.172.194.226:8000/api/v1/user/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ first_name, last_name, email, password })
+      });
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  
-  // submit button
-const signupForm = document.getElementById('signupForm');
-  signupForm.addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent page reload
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Signup failed');
+      }
 
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
-  
+      const data = await response.json();
+      alert("Signup successful! 🎉 You can now log in.");
+      window.location.href = "login.html";
 
-  
- createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      alert("Signup successful! Welcome " + userCredential.user.name);
-      window.location.href = "dashboard.html"
-    })
-    .catch((error) => {
+    } catch (error) {
       alert("Error: " + error.message);
-    });
+      console.error("Signup error:", error);
+    }
+  });
 });
-console.log("signup.js loaded");
