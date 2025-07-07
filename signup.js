@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const data = await response.json();
       alert("Signup successful! 🎉 You can now log in.");
-      window.location.href = "login.html";
+      window.location.href = "dashboard.html";
 
     } catch (error) {
       alert("Error: " + error.message);
