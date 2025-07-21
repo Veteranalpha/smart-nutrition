@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const data = await response.json();
+      console.log(data.data);
+      localStorage.setItem("token", data.access_token);
       alert("Signup successful! 🎉 You can now log in.");
       window.location.href = "dashboard.html";
 
